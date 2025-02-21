@@ -1,0 +1,68 @@
+{%extends 'home.html'%}
+
+{%block body%}
+
+<div style="
+    background-image: url('{{ url_for('static', filename='images/sheep.jpg') }}');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.9);
+    background-blend-mode: darken;
+    background-color: rgba(0, 0, 0, 0.5);
+">
+
+<div class="container my-5">
+    <div class="content-section mx-auto p-4" style="max-width: 500px; background: rgba(0, 0, 0, 0.75); border-radius: 10px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.8);">
+        <form method="POST" action="">
+            {{form.hidden_tag()}}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4 text-center text-light">Predict Wool Now</legend>
+
+                <div class="form-group mb-3">
+                    {{ form.fiber_diameter.label(class="form-control-label text-light") }}
+                    {{ form.fiber_diameter(class="form-control form-control-lg bg-dark text-light")}}
+                </div>
+
+                <div class="form-group mb-3">
+                    {{ form.fiber_length.label(class="form-control-label text-light") }}
+                    {{ form.fiber_length(class="form-control form-control-lg bg-dark text-light")}}
+                </div>
+
+                <div class="form-group mb-3">
+                    {{ form.crimp_Characteristics.label(class="form-control-label text-light") }}
+                    {{ form.crimp_Characteristics(class="form-control form-control-lg bg-dark text-light")}}
+                </div>
+
+                <div class="form-group mb-3">
+                    {{ form.strength.label(class="form-control-label text-light") }}
+                    {{ form.strength(class="form-control form-control-lg bg-dark text-light")}}
+                </div>
+
+                <div class="form-group mb-3">
+                    {{ form.elasticity.label(class="form-control-label text-light") }}
+                    {{ form.elasticity(class="form-control form-control-lg bg-dark text-light")}}
+                </div>
+
+                <div class="form-group mb-3">
+                    {{ form.fitness.label(class="form-control-label text-light") }}
+                    {{ form.fitness(class="form-control form-control-lg bg-dark text-light")}}
+                </div>
+
+                <div class="form-group text-center">
+                    {{ form.submit(class="btn btn-primary btn-lg w-100") }}
+                </div>
+            </fieldset>
+        </form>
+        <p class="text-center text-light mt-3">The predicted value is: <strong>{{ prediction }}</strong></p>
+    </div>
+</div>
+
+</div>
+{%endblock%}

@@ -1,0 +1,68 @@
+{% extends 'home.html'%}
+
+{% block body %}
+
+<div style="
+    background-image: url('{{ url_for('static', filename='images/juon2.jpg') }}');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    background-blend-mode: darken;
+    background-color: rgba(0, 0, 0, 0.5);
+">
+
+<div class="container my-5">
+    <div class="content-section mx-auto p-4 shadow-lg rounded" style="max-width: 500px; background: #f8f9fa;">
+        <h2 class="text-center text-primary fw-bold mb-4">Join Today</h2>
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            <fieldset class="form-group">
+                
+                <!-- Username Field -->
+                <div class="form-group mb-3">
+                    {{ form.username.label(class="form-control-label fw-bold text-secondary") }}
+                    {{ form.username(class="form-control form-control-lg border-primary") }}
+                </div>
+
+                <!-- Email Field -->
+                <div class="form-group mb-3">
+                    {{ form.email.label(class="form-control-label fw-bold text-secondary") }}
+                    {{ form.email(class="form-control form-control-lg border-primary") }}
+                </div>
+
+                <!-- Password Field -->
+                <div class="form-group mb-3">
+                    {{ form.password.label(class="form-control-label fw-bold text-secondary") }}
+                    {{ form.password(class="form-control form-control-lg border-primary") }}
+                </div>
+
+                <!-- Confirm Password Field -->
+                <div class="form-group mb-4">
+                    {{ form.confirm_password.label(class="form-control-label fw-bold text-secondary") }}
+                    {{ form.confirm_password(class="form-control form-control-lg border-primary") }}
+                </div>
+            </fieldset>
+
+            <!-- Submit Button -->
+            <div class="form-group text-center">
+                {{ form.submit(class="btn btn-primary btn-lg w-100 fw-bold") }}
+            </div>
+        </form>
+    </div>
+
+    <!-- Bottom Link -->
+    <div class="border-top pt-3 text-center mt-4">
+        <small class="text-light">
+            Already have an account? 
+            <a class="ml-2 text-primary fw-bold" href="{{ url_for('login') }}">Sign In</a>
+        </small>
+    </div>
+</div>
+
+{% endblock %}
